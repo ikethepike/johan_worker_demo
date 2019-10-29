@@ -25,3 +25,13 @@ Worker tasks are **asynchronous** and quite often **bitesized**. In your data pr
 - ensure that redis instance is up and running (in wsl on windows)
 - navigate to `http://localhost:8000/worker` and the view will dispatch worker jobs
 - after processing is done, open database and records should be listed
+
+## Key files
+
+The wrapper for this demo project is `Django`, which is an [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). I'm using it here to have a basic scaffold and functionality to build on. As of such, a lot of the files here are largely unrelated to the nuts and bolts of our workers, the main files to explore are:
+
+- `worker_demo/views.py`
+- `worker_demo/tasks.py`
+- `players/models.py`
+
+In `tasks.py`, I've commented out an synchronous function call to process our rows. I would recommend toggling between these to see the difference in performance.
